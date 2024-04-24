@@ -17,7 +17,6 @@ public class PersonValidator implements Validator {
         this.personDetailsService = personDetailsService;
     }
 
-
     @Override
     public boolean supports(Class<?> clazz) {
         return Person.class.equals(clazz);

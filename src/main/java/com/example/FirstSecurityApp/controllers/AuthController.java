@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/auth")
 public class AuthController {
-
     private final PersonValidator personValidator;
     private final RegistrationService registrationService;
     @Autowired
@@ -23,7 +22,6 @@ public class AuthController {
         this.personValidator = personValidator;
         this.registrationService = registrationService;
     }
-
 
     @GetMapping("/login")
     public String loginPage(){
@@ -47,5 +45,4 @@ public class AuthController {
         registrationService.register(person);
         return "redirect:/auth/login";
     }
-
 }

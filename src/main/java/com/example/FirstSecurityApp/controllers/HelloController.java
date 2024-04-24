@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
     public class HelloController {
-
     private final AdminService adminService;
 
     @Autowired
@@ -18,24 +17,22 @@ import org.springframework.web.bind.annotation.GetMapping;
         this.adminService = adminService;
     }
 
-
     @GetMapping("/hello")
-        public String helloPage(){
+    public String helloPage(){
             return "hello";
         }
 
-        @GetMapping("/showUserInfo")
-        public String showUserInfo(){
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            PersonDetails personDetails = (PersonDetails)authentication.getPrincipal();
-            System.out.println(personDetails.getPerson());
-            return "hello";
-        }
+    @GetMapping("/showUserInfo")
+    public String showUserInfo(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        PersonDetails personDetails = (PersonDetails)authentication.getPrincipal();
+        System.out.println(personDetails.getPerson());
+        return "hello";
+    }
 
-        @GetMapping("/admin")
+    @GetMapping("/admin")
     public String adminPage(){
         adminService.doAdminStuff();
-            return "admin";
-        }
-
+        return "admin";
+    }
 }
